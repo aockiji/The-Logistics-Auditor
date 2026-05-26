@@ -9,7 +9,8 @@ Also, late deliveries directly correlate with lower review scores, with 4.3 star
 ## Project Links
 - **Notebook:** [Google Colab link](https://colab.research.google.com/drive/1kXYvdeAXC0vekKvWwVp4d3odnQ4_FuNm?usp=sharing)
 - **Dashboard:** [Streamlit link](https://the-logistics-auditor-k5bgkcamm8akshyzp2qkmt.streamlit.app/)
-- **Presentation:** [Slides link](https://docs.google.com/presentation/d/1JOYngG5k3SVYdo1UcoKiTgXUTuyLDJ1x/edit?usp=drive_link&ouid=112191276132655190638&rtpof=true&sd=true)
+- **Slides:** [Slides link](https://1drv.ms/p/c/27a6b3913ef174fd/IQCDA_B-CPJnTKx4Fx9jwpVJAazuuoL-oYadU67z829J6Ew?e=eTO5q2)
+- **Video Presentation:** [YouTube link](https://youtu.be/xLJP2mxRlr0)
 
 ## Technical Notes
 **Data Cleaning:** First, the reviews table contained 551 duplicate order_id entries, i.e. some orders had multiple reviews. To fix this I kept only the most recent review per order, sorted by review_answer_timestamp. The next cleanup was orders with a status of canceled or unavailable were flagged separately as Canceled/Unavailable rather than being included in the late/on-time analysis. Orders that were delivered but missing a delivery date were also flagged as Undelivered. Finally, when joining the order items table to get product categories, some orders contained multiple items. To resolve this, only the first item per order was used to avoid row duplication.
