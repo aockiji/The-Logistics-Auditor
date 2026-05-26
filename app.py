@@ -228,11 +228,11 @@ trend_chart = px.line(
     x="days_difference",
     y="avg_review",
     labels={
-        "days_difference": "Days Late / Early",
+        "days_difference": "Days Early / Late",
         "avg_review": "Average Review Score"
     }
 )
-trend_chart.add_vline(x=0,line_dash="dash")
+trend_chart.add_vline(x=0,line_dash="dash", line_color="red")
 trend_chart.update_layout(
     height=500,
     yaxis_range=[1, 5]
@@ -279,23 +279,23 @@ category_chart = px.bar(
     color_continuous_scale="RdYlGn_r"
 )
 category_chart.add_vline(x=0, line_dash="dash")
-category_chart.update_layout(showlegend=False, height=700)
+category_chart.update_layout(showlegend=False, height=900)
 st.plotly_chart(category_chart, use_container_width=True)
 st.caption("Category analysis only uses the first item from each order.")
 st.divider()
 
 
-# for exploring the data
-st.subheader("Raw Data")
-cols = [
-    "order_id",
-    "customer_state",
-    "region",
-    "delivery_status",
-    "days_difference",
-    "review_score",
-    "product_category_name_english",
-    "order_purchase_timestamp"
-]
-st.dataframe(filtered[cols].reset_index(drop=True), use_container_width=True)
+# # for exploring the data
+# st.subheader("Raw Data")
+# cols = [
+#     "order_id",
+#     "customer_state",
+#     "region",
+#     "delivery_status",
+#     "days_difference",
+#     "review_score",
+#     "product_category_name_english",
+#     "order_purchase_timestamp"
+# ]
+# st.dataframe(filtered[cols].reset_index(drop=True), use_container_width=True)
 st.caption("Dataset: Olist Brazilian E-Commerce (https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)")
